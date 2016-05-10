@@ -1,0 +1,41 @@
+plugins {
+  id 'org.ajoberstar.grgit' version '1.4.2'
+}
+
+apply plugin: 'java'
+
+import org.ajoberstar.grgit.*
+import org.apache.tools.ant.filters.ReplaceTokens
+
+version = generateVersion('0.1')
+String pluginMain = 'com.lesserhydra.moonaware.MoonAware'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven {
+    url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+  }
+}
+
+dependencies {
+  compile 'org.bukkit:craftbukkit:1.11.2-R0.1-SNAPSHOT'
+}
+
+//Generate plugin.yml
+processResources {
+  inputs.file 'build.gradle' //So it's regenerated if version changes
+  from 'templates/plugin.yml'
+  filter(ReplaceTokens, tokens: [
+          version:		version,
+          mainClass:  pluginMain,
+  ])
+}
+
+static String generateVersion(workingVersion) {
+  Grgit repo = Grgit.open()
+  Tag currentTag = repo.tag.list().find {it.commit == repo.head()}
+
+  if (currentTag == null) return workingVersion + '-SNAPSHOT'
+  return currentTag.getName()
+}

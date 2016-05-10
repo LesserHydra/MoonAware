@@ -1,0 +1,21 @@
+Light Threshold Per Moon Phase:
+  Full Moon:       23
+  Waning Gibbous:  18
+  Last Quarter:    14
+  Waning Crescent: 10
+  New Moon:        5
+  Waxing Crescent: 10
+  First Quarter:   14
+  Waxing Gibbous:  18
+
+Surface Scarcity Per Moon Phase:
+  Full Moon:       1
+  Waning Gibbous:  1
+  Last Quarter:    0.75
+  Waning Crescent: 0.5
+  New Moon:        0.2
+  Waxing Crescent: 0.5
+  First Quarter:   0.75
+  Waxing Gibbous:  1
+
+Mobs to Ignore: []
