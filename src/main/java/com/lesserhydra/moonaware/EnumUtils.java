@@ -1,13 +1,13 @@
-package com.lesserhydra.util;
+package com.lesserhydra.moonaware;
 
 import java.util.EnumSet;
 import java.util.regex.Pattern;
 
-public class EnumUtils {
+class EnumUtils {
 	
 	private static Pattern enumSeperaterPattern = Pattern.compile("[_\\s]");
 	
-	public static <T extends Enum<T>> T parseEnum(String typeString, final Class<T> enumClass) {
+	static <T extends Enum<T>> T parseEnum(String typeString, final Class<T> enumClass) {
 		//Find enum from value
 		String lookupName = enumSeperaterPattern.matcher(typeString.toUpperCase()).replaceAll("");
 		for (T type : EnumSet.allOf(enumClass)) {

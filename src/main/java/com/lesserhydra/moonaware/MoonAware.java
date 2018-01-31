@@ -1,6 +1,5 @@
 package com.lesserhydra.moonaware;
 
-import com.lesserhydra.bukkitutil.MoonPhase;
 import org.bukkit.ChatColor;
 import org.bukkit.World.Environment;
 import org.bukkit.block.Block;

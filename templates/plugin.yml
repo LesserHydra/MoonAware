@@ -1,7 +1,9 @@
 name: MoonAware
 main: @mainClass@
 version: @version@
-author: Roboboy
+author: Justin Lawen
+
+depend: [HydraCore]
 
 commands:
   MoonAware:

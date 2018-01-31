@@ -10,8 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
-import com.lesserhydra.bukkitutil.MoonPhase;
-import com.lesserhydra.util.EnumUtils;
+
 
 class ConfigOptions {
 	
@@ -22,7 +21,7 @@ class ConfigOptions {
 	private final Set<EntityType> entityWhitelist;
 	
 	
-	public ConfigOptions(MoonAware plugin, FileConfiguration config) {
+	ConfigOptions(MoonAware plugin, FileConfiguration config) {
 		this.plugin = plugin;
 		
 		this.lightThresholdMap = parseLightThresholds(config);
@@ -30,15 +29,15 @@ class ConfigOptions {
 		this.entityWhitelist = parseMonsterWhitelist(config);
 	}
 
-	public int getLightThreshold(MoonPhase moon) {
+	int getLightThreshold(MoonPhase moon) {
 		return lightThresholdMap.get(moon);
 	}
 	
-	public double getSurfaceScarcity(MoonPhase moon) {
+	double getSurfaceScarcity(MoonPhase moon) {
 		return surfaceScarcityMap.get(moon);
 	}
 	
-	public boolean isEntityEnabled(MoonPhase moon, EntityType type) {
+	boolean isEntityEnabled(MoonPhase moon, EntityType type) {
 		return entityWhitelist.contains(type);
 	}
 	

@@ -1,6 +1,7 @@
-package com.lesserhydra.bukkitutil;
+package com.lesserhydra.moonaware;
 
 import org.bukkit.World;
+
 
 public enum MoonPhase {
 	
